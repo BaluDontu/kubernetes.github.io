@@ -546,17 +546,17 @@ parameters:
    - Here, the user can specify VSAN storage capabilities for dynamic volume provisioning inside Kubernetes.
    - Storage Policies capture storage requirements, such as performance and availability, for persistent volumes. These policies determine how the container volume storage objects are provisioned and allocated within the datastore to guarantee the requested Quality of Service. Storage policies are composed of storage capabilities,typically represented by a key-value pair. The key is a specific property that the datastore can offer and the value is a metric, or a range, that the datastore guarantees for a provisioned object, such as a container volume backed by a virtual disk.
    - As described in [official documentation](https://pubs.vmware.com/vsphere-65/index.jsp?topic=%2Fcom.vmware.vsphere.virtualsan.doc%2FGUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html), VSAN exposes multiple storage capabilities. The below table lists VSAN storage capabilities that are currently supported by vSphere Cloud Provider.
-   
-   Storage Capability Name       | Description
-   -------------------- | ------------
-   cacheReservation     | Flash read cache reservation
-   diskStripes          | Number of disk stripes per object
-   forceProvisioning     | Force provisioning
-   hostFailuresToTolerate     | Number of failures to tolerate
-   iopsLimit     | IOPS limit for object
-   objectSpaceReservation     | Object space reservation
 
-   vSphere Infrastructure(VI) administrator can specify storage requirements for applications in terms of storage capabilities while creating a storage class inside Kubernetes. Please note that while creating a StorageClass, administrator should specify storage capability names used in the table above as these names might differ from the ones used by VSAN. For example - Number of disk stripes per object is referred to as stripeWidth in VSAN documentation however vSphere Cloud Provider uses a friendly name diskStripes.
+      Storage Capability Name       | Description
+      -------------------- | ------------
+      cacheReservation     | Flash read cache reservation
+      diskStripes          | Number of disk stripes per object
+      forceProvisioning     | Force provisioning
+      hostFailuresToTolerate     | Number of failures to tolerate
+      iopsLimit     | IOPS limit for object
+      objectSpaceReservation     | Object space reservation
+
+      vSphere Infrastructure(VI) administrator can specify storage requirements for applications in terms of storage capabilities while creating a storage class inside Kubernetes. Please note that while creating a StorageClass, administrator should specify storage capability names used in the table above as these names might differ from the ones used by VSAN. For example - Number of disk stripes per object is referred to as stripeWidth in VSAN documentation however vSphere Cloud Provider uses a friendly name diskStripes.
 
 You can see [vSphere example](https://github.com/kubernetes/kubernetes/tree/master/examples/volumes/vsphere) for more details.
 
